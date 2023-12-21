@@ -3,13 +3,13 @@ import SessionButton from "./components/SessionButton";
 import SessionOrderForm from "./components/SessionOrderForm";
 
 const sessions = [
-  {'name': 'Valkiria', 'session': '10:00', 'seats': [0,0,0,0,1,1,1,0,0,0]},
-  {'name': 'Love', 'session': '12:00', 'seats': [0,1,0,1,1,1,1,0,0,0]},
-  {'name': 'Shame', 'session': '14:00', 'seats': [0,1,0,1,1,1,1,1,0,0]},
-  {'name': 'Mission Imposible', 'session': '16:00', 'seats': [0,1,0,1,1,1,1,0,0,0]},
-  {'name': 'Shrek', 'session': '18:00', 'seats': [0,1,0,1,1,1,1,1,0,0]},
-  {'name': 'Iron Man', 'session': '20:00', 'seats': [0,1,1,1,1,1,1,1,1,0]}
-];
+  {"name":"Valkiria","date": "2023-10-24","session":"10:00","seats":[0,0,0,0,1,1,1,0,0,0]},
+  {"name":"Love","date": "2023-10-24","session":"12:00","seats":[0,1,0,1,1,1,1,0,0,0]},
+  {"name":"Shame","date": "2023-10-24","session":"14:00","seats":[0,1,0,1,1,1,1,1,0,0]},
+  {"name":"Mission Imposible","date": "2023-10-24","session":"16:00","seats":[0,1,0,1,1,1,1,0,0,0]},
+  {"name":"Shrek","date": "2023-10-24","session":"18:00","seats":[0,1,0,1,1,1,1,1,0,0]},
+  {"name":"Iron Man","date": "2023-10-24","session":"20:00","seats":[0,1,1,1,1,1,1,1,1,0]}
+  ];
 const DATEBUTTON_MAP = {
   "Today": "2023-10-24",
   "Tomorrow": "2023-10-25",

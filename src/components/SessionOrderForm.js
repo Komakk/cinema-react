@@ -1,9 +1,16 @@
+import Seat from "./Seat";
+
 export default function SessionOrderForm({ session }) {
+    const sessionDateString = new Date(session.date).toDateString().slice(0, 10);
+    const sessionDateTime = `${sessionDateString} ${session.session}`;
+    const seatList = session.seats.map(seat => (
+        <Seat status={seat} />
+    ));
     return (
         <div className="session-order-form">
         <div className="session-info-container">
-            <p>Name: <span class="session-info"></span></p>
-            <p>Date: <span class="session-info"></span></p>
+            <p>Name: <span class="session-info">{session.name}</span></p>
+            <p>Date: <span class="session-info">{sessionDateTime}</span></p>
         </div>
         <p>Seats: </p>
         <div class="legend">
@@ -17,16 +24,7 @@ export default function SessionOrderForm({ session }) {
             </div>
         </div> 
         <div class="seats">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
+            {seatList}
         </div>
         <p class="seat-count">Your reserved seat: <span id="reserved-seat"></span></p>
         <button class="btn-buy">Select seats</button>
