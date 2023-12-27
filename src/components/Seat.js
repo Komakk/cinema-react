@@ -1,4 +1,4 @@
-export default function Seat( {status} ) {
+export default function Seat( {number, status, onClick} ) {
     let seatStyle = "seat";
     switch (status) {
         case 1:
@@ -9,6 +9,6 @@ export default function Seat( {status} ) {
             break;
     }
     return (
-        <div class={seatStyle}></div>
+        <div className={seatStyle} onClick={() => onClick(number)}></div>
     )
 }

@@ -1,33 +1,47 @@
+import { useState } from "react";
 import Seat from "./Seat";
 
 export default function SessionOrderForm({ session }) {
+    const [seats, setSeats] = useState(session.seats);
+
     const sessionDateString = new Date(session.date).toDateString().slice(0, 10);
     const sessionDateTime = `${sessionDateString} ${session.session}`;
-    const seatList = session.seats.map(seat => (
-        <Seat status={seat} />
+    const seatList = seats.map((seat, i) => (
+        <Seat 
+          key={i}
+          number={i}
+          status={seat}
+          onClick={handleSeatClick} />
     ));
+
+    function handleSeatClick(seatNumber) {
+        const newSeats = [...seats];
+        newSeats[seatNumber] = newSeats[seatNumber] !== 2 ? 2 : 0;
+        setSeats(newSeats);
+    }
+
     return (
         <div className="session-order-form">
         <div className="session-info-container">
-            <p>Name: <span class="session-info">{session.name}</span></p>
-            <p>Date: <span class="session-info">{sessionDateTime}</span></p>
+            <p>Name: <span className="session-info">{session.name}</span></p>
+            <p>Date: <span className="session-info">{sessionDateTime}</span></p>
         </div>
         <p>Seats: </p>
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-seat free"></div>
+        <div className="legend">
+            <div className="legend-item">
+                <div className="legend-seat free"></div>
                 <span>Free</span>
             </div>
-            <div class="legend-item">
-                <div class="legend-seat occupaied"></div>
+            <div className="legend-item">
+                <div className="legend-seat occupaied"></div>
                 <span>Occupaied</span>
             </div>
         </div> 
-        <div class="seats">
+        <div className="seats">
             {seatList}
         </div>
-        <p class="seat-count">Your reserved seat: <span id="reserved-seat"></span></p>
-        <button class="btn-buy">Select seats</button>
+        <p className="seat-count">Your reserved seat: <span id="reserved-seat"></span></p>
+        <button className="btn-buy">Select seats</button>
       </div>
     );
 }
